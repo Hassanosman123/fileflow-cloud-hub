@@ -1,4 +1,3 @@
-
 import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { AdminSidebar } from '@/components/sidebars/AdminSidebar';
 import { Button } from '@/components/ui/button';
@@ -8,6 +7,7 @@ import {
   Menu
 } from 'lucide-react';
 import { useState } from 'react';
+import NotificationDropdown from '@/components/NotificationDropdown';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -34,12 +34,7 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
               </Button>
 
               <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                <Button variant="ghost" size="sm" className="relative">
-                  <Bell className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">
-                    5
-                  </span>
-                </Button>
+                <NotificationDropdown />
                 
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                   <div className="text-right">
