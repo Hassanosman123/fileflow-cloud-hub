@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Cloud } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,10 +14,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2 rtl:space-x-reverse">
+          <Link to="/" className="flex items-center space-x-2 rtl:space-x-reverse">
             <Cloud className="h-8 w-8 text-fileflow-blue" />
             <span className="text-2xl font-bold gradient-text">FileFlow</span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8 rtl:space-x-reverse">
@@ -28,12 +29,16 @@ const Navbar = () => {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center space-x-4 rtl:space-x-reverse">
-            <Button variant="ghost" className="text-gray-600 hover:text-fileflow-blue">
-              تسجيل الدخول
-            </Button>
-            <Button className="bg-fileflow-blue hover:bg-fileflow-darkBlue text-white">
-              إنشاء حساب
-            </Button>
+            <Link to="/login">
+              <Button variant="ghost" className="text-gray-600 hover:text-fileflow-blue">
+                تسجيل الدخول
+              </Button>
+            </Link>
+            <Link to="/register">
+              <Button className="bg-fileflow-blue hover:bg-fileflow-darkBlue text-white">
+                إنشاء حساب
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
@@ -58,8 +63,12 @@ const Navbar = () => {
               <a href="#about" className="block px-3 py-2 text-gray-600 hover:text-fileflow-blue">من نحن</a>
               <a href="#contact" className="block px-3 py-2 text-gray-600 hover:text-fileflow-blue">اتصل بنا</a>
               <div className="flex flex-col space-y-2 px-3 py-2">
-                <Button variant="outline" className="w-full">تسجيل الدخول</Button>
-                <Button className="w-full bg-fileflow-blue hover:bg-fileflow-darkBlue text-white">إنشاء حساب</Button>
+                <Link to="/login">
+                  <Button variant="outline" className="w-full">تسجيل الدخول</Button>
+                </Link>
+                <Link to="/register">
+                  <Button className="w-full bg-fileflow-blue hover:bg-fileflow-darkBlue text-white">إنشاء حساب</Button>
+                </Link>
               </div>
             </div>
           </div>
